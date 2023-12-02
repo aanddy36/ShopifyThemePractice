@@ -1,0 +1,30 @@
+{{ 'cart.css' | asset_url | stylesheet_tag }}
+
+<div class="cart-cont">
+    <a href="/"> <- Back to Home</a>
+    {% if cart.empty? %}
+        <h2>Your cart is still empty. Start adding some products :)</h2>
+    {% else %}
+        {% form 'cart', cart %}
+            <section class="cart-items">
+                {% for line_item in cart.items %}
+                    <div class="item">
+                        <span>
+                            {{ line_item.quantity }} x {{ line_item.title }}
+                        </span>
+                        <div class="btns">
+                            <h4>{{ line_item.final_line_price | money }}</h4>
+                            <input type="text" name="updates[]" value="{{ line_item.quantity }}"/>
+                            <button type="submit">Update</button>
+                            <a href="{{line_item.url_to_remove}}">Remove</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </section>
+            <div class="total">
+                <h1>Total: {{ cart.total_price | money }}</h1>
+                <button type="submit" name="checkout">Checkout</button>
+            </div>
+        {% endform %}
+    {% endif %}
+</div>

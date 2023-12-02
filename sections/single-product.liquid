@@ -1,0 +1,39 @@
+{{ 'single-product.css' | asset_url | stylesheet_tag }}
+
+<div class="prod-cont">
+  <img
+    src="{{ product.featured_image |  image_url  }}"
+    width="700"
+    height="500"
+    loading="lazy" />
+  <div class="prod-info">
+    <h1 class="title">{{ product.title }}</h1>
+    <h3>Price: {{ product.price | money }}</h3>
+    <p>{{ product.description }}</p>
+
+    {% form 'product'
+      , product %}
+      {% if product.has_only_default_variant %}
+        <input
+          type="hidden"
+          name="id"
+          value={{ product.first_available_variant.id }} />
+      {% else %}
+        <label>Select the color</label>
+        <select name="id">
+          {% for variant in product.variants %}
+            <option value="{{ variant.id }}">{{ variant.title }}</option>
+          {% endfor %}
+        </select>
+      {% endif %}
+      <label for="number">Quantity</label>
+      <input
+        id="number"
+        type="number"
+        name="quantity"
+        min="1"
+        value="1">
+      <button type="submit" class="btn">Add to cart</button>
+    {% endform %}
+  </div>
+</div>

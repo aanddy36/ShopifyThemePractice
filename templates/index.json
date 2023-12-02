@@ -1,0 +1,9 @@
+{
+    "name": "Template Home Page",
+    "sections": {
+        "template-homepage":{
+            "type": "homepage"
+        }
+    },
+    "order": ["template-homepage"]
+}

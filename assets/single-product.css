@@ -1,0 +1,23 @@
+*{
+    box-sizing: content-box;
+}
+.prod-cont{
+    padding: 100px 60px;
+    display: flex;
+    gap: 20px;
+}
+.prod-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title{
+    font-size: 50px;
+}
+.btn{
+    font-size: 18px;
+    background-color: #fcba03;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}

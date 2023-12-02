@@ -1,0 +1,6 @@
+.page-cont{
+    padding: 50px 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
