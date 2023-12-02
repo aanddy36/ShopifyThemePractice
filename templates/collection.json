@@ -1,1 +1,9 @@
-{}
+{
+    "name": "Catalog",
+    "sections": {
+        "Catalog":{
+            "type": "catalog"
+        }
+    },
+    "order": ["Catalog"]
+}

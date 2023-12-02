@@ -1,0 +1,23 @@
+{{ 'homepage.css' | asset_url | stylesheet_tag }}
+<div class="hp-cont">
+  <h1 class="hp-header">{{ collection.title }}</h1>
+
+  <div class="hp-products">
+    {% paginate collection.products by 6 %}
+      {% for product in collection.products %}
+        <a href="{{collection.url}}" class="hp-product">
+          <img
+            src="{{ product.featured_image |  image_url  }}"
+            width="300"
+            height="200"
+            loading="lazy" />
+          <div class="price-title">
+            <h2>{{ product.title }}</h2>
+            <h3>{{ product.price | money }}</h3>
+          </div>
+        </a>
+      {% endfor %}
+      {{ paginate | default_pagination }}
+    {% endpaginate %}
+  </div>
+</div>
