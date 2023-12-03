@@ -1,1 +1,9 @@
-{}
+{
+    "name": "Search Page",
+    "sections": {
+        "Search":{
+            "type": "search"
+        }
+    },
+    "order": ["Search"]
+}

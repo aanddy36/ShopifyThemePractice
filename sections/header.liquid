@@ -8,6 +8,16 @@
       </a>
     {% endfor %}
   </ul>
+  <div>
+    <form action="{{ routes.search_url }}">
+      <input
+        type="text"
+        placeholder="Search"
+        name="q"
+        value="{{ search.terms | escape }}">
+      <button type="submit">Search</button>
+    </form>
+  </div>
   <a href="{{routes.cart_url}}">
     {% render 'icon-shopping-bag' %}
   </a>

@@ -4,9 +4,8 @@
 }
 .nav-cont {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  gap: 30%;
   padding: 30px;
   box-shadow: 0px 4px 5px #00000048;
 }
